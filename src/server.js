@@ -10,11 +10,14 @@ setupMiddware(app)
 connect()
 // setup basic routing for index route
 
+// mount the restRouter on the /api path
+app.use('/api', restRouter)
+
 app.use('/signin', signin)
 
 // catch all
 app.all('*', (req, res) => {
-  res.json({ok: true})
+  res.json({ ok: true })
 })
 
 export default app
